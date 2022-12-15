@@ -16,7 +16,7 @@ export class AppController {
 
   @Post()
   //faz o retorno de mina postagem
-  async create(@Body() body: any) {
+  async create(@Body() body: CreateNotificationBody) {
     const { recipientId, content, category } = body;
 
     await this.prisma.notification.create({

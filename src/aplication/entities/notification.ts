@@ -18,6 +18,10 @@ export class Notification {
 
     this.content = content;
   }
+
+  public get content(): string {
+    return this.props.content;
+  }
 }
 
 const notification = new Notification();

@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//definição da tabela do bancio de dados
+
+model Notification {
+  id          String    @id //chave primaria
+  recipientId String
+  content     String //conteudo da notificação
+  category    String //categoria da notificação
+  readAt      DateTime? // data atual preenchida automaticamente
+  createdat   DateTime  @default(now()) // data de leitura
+
+  @@index([recipientId])
+}
